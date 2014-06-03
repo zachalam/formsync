@@ -13,7 +13,7 @@ Add jQuery then formsync to any HTML document.
 
 Building the Form: Frontend
 -----------------------------
-If you've written a HTML form in the past then there isn't anything new. Simply build your form as usual and add the "formsync" class to the **form** tag. For message reproting: add two div layers inside the "form". One with a class of "error" the other "success". These should be styled by you. 
+If you've written a HTML form in the past then there isn't anything new. Simply build your form as usual and add the "formsync" class to the **form** tag. For message reporting: add two div layers inside the "form". One with a class of "error" the other "success". These should be styled by you. 
 
 ```HTML
 <form class="formsync" method="GET" action="submit.php">
