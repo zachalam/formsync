@@ -48,14 +48,14 @@ formsync.js will automatically inject this error message into your error div.
 Form Attributes
 -----------------------------
 formsync_method
-Overrides the method (if any) specified in <form method="POST"> 
-```
+Overrides the method (if any) specified in the form.
+```HTML
 <input type="hidden" name="formsync_method" value="http://grade.net">
 ```
 
 formsync_action
-Overrides the action (if any) specified in <form action="submit.php">
-```
+Overrides the action (if any) specified in the form.
+```HTML
 <input type="hidden" name="formsync_action" value="http://grade.net">
 ```
 
@@ -64,31 +64,31 @@ Success Actions
 -----------------------------
 formsync_redirect
 Redirect user to http://grade.net if server returns no error on form submission.
-```
+```HTML
 <input type="hidden" name="formsync_redirect" value="http://grade.net">
 ```
 
 formsync_message
-Inject message into <div class="success"></div> if server returns no error on form submission.
-```
+Inject message into "success" div if server returns no error on form submission.
+```HTML
 <input type="hidden" name="formsync_message" value="The form was submitted successfully.">
 ```
 
 formsync_alert
 Uses the javascript alert function to display a message
-```
+```HTML
 <input type="hidden" name="formsync_alert" value="Thanks for your feedback.">
 ```
 
 formsync_callback
 The name of a user written function to call after success
-```
+```HTML
 <input type="hidden" name="formsync_callback" value="myFunctionName">
 ```
 
 formsync_clear
 Clear all input fields of data on success
-```
+```HTML
 <input type="hidden" name="formsync_message" value="true">
 ```
 
