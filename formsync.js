@@ -20,6 +20,8 @@ $(document).ready(function() {
 	var LANG_PLEASE_WAIT = "Please wait...";
 	// generic error, shown when debug mode is false, and server error occurs.
 	var LANG_UNABLE_TO_COMM = "Unable to communicate with server.";
+	// generic error, shown when user has not set a form action
+	var LANG_NO_FORM_ACTION = "Formsync.js Error: No <form> action set.";
 	
 	// error selector, used to inject server responses 
 	// <div class="error"></div>
@@ -67,6 +69,7 @@ $(document).ready(function() {
 		var action_override = formsync_get_attribute("action");
 		if(action_override) action = action_override;
 		else action = $(this).attr("action");
+		if(!action) alert(LANG_NO_FORM_ACTION);
 		
 		// -----------------------------------------------------------
 
