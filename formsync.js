@@ -144,7 +144,7 @@ $(document).ready(function() {
 
 			// ----------
 
-			else if(formsync_get_attribute("message"))
+			if(formsync_get_attribute("message"))
 			{
 				// sets a message to the "success" div
 				$(SUCCESS_SELECTOR,window.formsync).html(formsync_get_attribute("message"));
@@ -154,7 +154,7 @@ $(document).ready(function() {
 
 			// ----------
 
-			else if(formsync_get_attribute("alert"))
+			if(formsync_get_attribute("alert"))
 			{
 				// sets a message using the alert() function.
 				alert(formsync_get_attribute("alert"));
@@ -163,7 +163,7 @@ $(document).ready(function() {
 
 			// ----------
 		
-			else if(formsync_get_attribute("callback"))
+			if(formsync_get_attribute("callback"))
 			{
 				// runs a user defined function
 				var call_callback = window[formsync_get_attribute("callback")];
