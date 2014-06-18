@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 	// enable/disable debug mode.
 	// this shows specific errors when server does not accept data
-	var DEBUG_MODE_ENABLED = false;
+	var DEBUG_MODE_ENABLED = true;
 	
 	// language variables
 	// shown when the submit button is pressed
@@ -76,6 +76,9 @@ $(document).ready(function() {
 		// serialize formdata
 		var form_data = $(this).serialize();
 
+		// if debug mode is enabled, log form data
+		if(DEBUG_MODE_ENABLED) console.log(form_data);
+
 		// strip all inputs with formsync_ in front of them
 		
 
@@ -126,6 +129,11 @@ $(document).ready(function() {
 	function formsync_success(data)
 	{
 		// the server did not encouter a problem handling this request
+
+		// if debug mode is enabled, log data in console
+		if(DEBUG_MODE_ENABLED)  console.log(data);
+
+
 		if(data.error)
 		{
 			// server did not accept data
