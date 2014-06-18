@@ -83,7 +83,7 @@ $(document).ready(function() {
 
 
 		// strip all inputs with formsync_ in front of them
-		
+		console.log(form_data);
 
 
 		// set timeout of 400ms, for better visual appearance.
