@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 	// enable/disable debug mode.
 	// this shows specific errors when server does not accept data
-	var DEBUG_MODE_ENABLED = true;
+	var DEBUG_MODE_ENABLED = false;
 	
 	// language variables
 	// shown when the submit button is pressed
@@ -43,17 +43,25 @@ $(document).ready(function() {
 		$(ERROR_SELECTOR, this).slideUp();
 		$(SUCCESS_SELECTOR, this).slideUp();
 		
-		// assign global variable to this formsync
+		// assign global (window) variable to this form
+		// we'll call it "formsync" so other functions can use it.
 		window.formsync = this;
+
+		// serialize formdata.
+		var form_data = $(this).serialize();
+
+		// if debug mode is enabled, log form data
+		if(DEBUG_MODE_ENABLED) console.log($(this).serialize());
+
 		
 		// disallow user from making changes to any part of the 
-		// form when they want to submit it.
+		// form after they have pressed the submit button.
 		$(':input',this).prop("disabled",true);
 		
 		// save the current text value of the submit button
 		window.submit_button = $('input[type="submit"]',this).attr("value");
 		
-		// set the default text of the submit button to please wait.
+		// set the default text of the submit button to "please wait".
 		$('input[type="submit"]',this).attr("value",LANG_PLEASE_WAIT);
 		
 		// -----------------------------------------------------------
@@ -73,11 +81,6 @@ $(document).ready(function() {
 		
 		// -----------------------------------------------------------
 
-		// serialize formdata
-		var form_data = $(this).serialize();
-
-		// if debug mode is enabled, log form data
-		if(DEBUG_MODE_ENABLED) console.log(form_data);
 
 		// strip all inputs with formsync_ in front of them
 		
