@@ -13,12 +13,11 @@ Add jQuery then formsync to any HTML document.
 
 Building the Form: Frontend
 -----------------------------
-If you've written a HTML form in the past then there isn't anything new. Simply build your form as usual and add the "formsync" class to the **form** tag. For message reporting: add two div layers inside the "form". One with a class of "error" the other "success". These should be styled by you. 
+If you've written a HTML form in the past then there isn't anything new. Simply build your form as usual and add the "formsync" class to the **form** tag. For error reporting: add one div layer inside your form with a class of "error". This should be styled by you using an external stylesheet.
 
 ```HTML
 <form class="formsync" method="GET" action="submit.php">
 <div class="error" style="display:none;"></div>
-<div class="success" style="display:none;"></div>
 
 <input type="text" name="hello">
 <input type="submit" value="Submit Form">
@@ -97,10 +96,10 @@ Redirect user to http://example.com if server returns no error on form submissio
 <input type="hidden" name="formsync_redirect" value="http://example.com">
 ```
 
-**formsync_message**:
-Inject message into "success" div if server returns no error on form submission.
+**formsync_show**:
+Shows a specified selector by sliding it down into view.
 ```HTML
-<input type="hidden" name="formsync_message" value="Form was submitted successfully.">
+<input type="hidden" name="formsync_show" value="#success_message">
 ```
 
 **formsync_alert**:
@@ -122,7 +121,7 @@ Clear all input fields of data on success
 ```
 
 **formsync_hide**:
-Hides entire form including everything between "form" tags.
+Hides entire form (by sliding up) including everything between "form" tags.
 ```HTML
 <input type="hidden" name="formsync_hide" value="true">
 ```

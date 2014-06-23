@@ -152,13 +152,28 @@ $(document).ready(function() {
 			}
 
 			// ----------
-
-			if(formsync_get_attribute("message"))
+			
+			if(formsync_get_attribute("clear"))
 			{
-				// sets a message to the "success" div
-				$(SUCCESS_SELECTOR,window.formsync).html(formsync_get_attribute("message"));
-				$(SUCCESS_SELECTOR,window.formsync).slideDown();					
+				// reset form
+				$(window.formsync)[0].reset();
 
+			}						
+			
+			// ----------
+			
+			if(formsync_get_attribute("hide"))
+			{
+				// hides form by sliding it up
+				$(this).slideUp();
+			}
+
+			// ----------
+			
+			if(formsync_get_attribute("show"))
+			{
+				// shows a specific selector by sliding it down
+				$(formsync_get_attribute("show")).slideDown();
 			}
 
 			// ----------
@@ -182,19 +197,6 @@ $(document).ready(function() {
 
 			// ----------
 
-			if(formsync_get_attribute("clear"))
-			{
-				// reset form
-				$(window.formsync)[0].reset();
-
-			}						
-			
-			// ----------
-			if(formsync_get_attribute("hide"))
-			{
-				// hides form
-				$(this).slideUp();
-			}
 		}
 	}
 	
