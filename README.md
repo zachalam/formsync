@@ -118,8 +118,15 @@ The name of a user written function to call after success
 **formsync_clear**:
 Clear all input fields of data on success
 ```HTML
-<input type="hidden" name="formsync_message" value="true">
+<input type="hidden" name="formsync_clear" value="true">
 ```
+
+**formsync_hide**:
+Hides entire form including everything between "form" tags.
+```HTML
+<input type="hidden" name="formsync_hide" value="true">
+```
+
 
 Notices
 ----------------------------

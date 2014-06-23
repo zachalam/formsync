@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 	// enable/disable debug mode.
 	// this shows specific errors when server does not accept data
-	var DEBUG_MODE_ENABLED = false;
+	var DEBUG_MODE_ENABLED = true;
 	
 	// language variables
 	// shown when the submit button is pressed
@@ -47,8 +47,9 @@ $(document).ready(function() {
 		// we'll call it "formsync" so other functions can use it.
 		window.formsync = this;
 
-		// serialize formdata.
-		var form_data = $(this).serialize();
+		// serialize formdata with all inputs
+		// except anything that starts with "formsync_"
+		var form_data = $(":not(input[name='formsync_action'])",this).serialize();
 
 		// if debug mode is enabled, log form data
 		if(DEBUG_MODE_ENABLED) console.log($(this).serialize());
@@ -80,10 +81,7 @@ $(document).ready(function() {
 		if(!action) alert(LANG_NO_FORM_ACTION);
 		
 		// -----------------------------------------------------------
-
-
-		// strip all inputs with formsync_ in front of them
-		console.log(form_data);
+	
 
 
 		// set timeout of 400ms, for better visual appearance.
@@ -191,6 +189,12 @@ $(document).ready(function() {
 
 			}						
 			
+			// ----------
+			if(formsync_get_attribute("hide"))
+			{
+				// hides form
+				$(this).slideUp();
+			}
 		}
 	}
 	
