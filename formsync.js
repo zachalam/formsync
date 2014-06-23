@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 	// enable/disable debug mode.
 	// this shows specific errors when server does not accept data
-	var DEBUG_MODE_ENABLED = true;
+	var DEBUG_MODE_ENABLED = false;
 	
 	// language variables
 	// shown when the submit button is pressed
@@ -153,19 +153,10 @@ $(document).ready(function() {
 
 			// ----------
 			
-			if(formsync_get_attribute("clear"))
-			{
-				// reset form
-				$(window.formsync)[0].reset();
-
-			}						
-			
-			// ----------
-			
 			if(formsync_get_attribute("hide"))
 			{
 				// hides form by sliding it up
-				$(this).slideUp();
+				$(window.formsync).slideUp();
 			}
 
 			// ----------
@@ -196,6 +187,14 @@ $(document).ready(function() {
 			}
 
 			// ----------
+			
+			if(formsync_get_attribute("clear"))
+			{
+				// reset form
+				$(window.formsync)[0].reset();
+
+			}						
+			
 
 		}
 	}
